@@ -32,14 +32,14 @@ class ServerMail extends PluginBase implements Listener {
     /**
      * The onLoad function - empty.
      */
-    public function onLoad() {
+    public function onLoad() : void{
         
     }
 
     /**
      * The onEnable function - just setting up the config.
      */
-    public function onEnable() {
+    public function onEnable() : void{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->saveDefaultConfig();
         $this->reloadConfig();
@@ -77,7 +77,7 @@ class ServerMail extends PluginBase implements Listener {
      * @param array $args The arguments with the command.
      * @return boolean Wether or not the command succeded.
      */
-    public function onCommand(CommandSender $sender, Command $command, $label, array $args) {
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool{
         switch ($command->getName()) {
             case "mail":
             case $this->getMessage("commands.names.mail"):
@@ -88,12 +88,14 @@ class ServerMail extends PluginBase implements Listener {
                         $sender->sendMessage("[ServerMail] " . sprintf($this->getMessage("messages.count"), count($messages)) . ".");
                         foreach ($messages as $message) {
                             $sender->sendMessage("    " . $message["sender"] . ": " . $message["message"]);
+                            return true;
                         }
                         break;
                     case "clear":
                     case $this->getMessage("commands.names.clear"):
                         ServerMailAPI::clearMessages($this->getUserName($sender));
                         $sender->sendMessage("[ServerMail] " . $this->getMessage("messages.cleared"));
+                        return true;
                         break;
                     case "send":
                     case $this->getMessage("commands.names.send"):
