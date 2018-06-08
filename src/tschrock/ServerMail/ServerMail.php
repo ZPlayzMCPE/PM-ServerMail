@@ -15,6 +15,7 @@ use pocketmine\plugin\PluginBase;
 use tschrock\ServerMailAPI;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerRespawnEvent;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\utils\Config;
 
 /**
@@ -225,7 +226,15 @@ class ServerMail extends PluginBase implements Listener {
                 . $this->getMessage("commands.names.mail") . " "
                 . $this->getMessage("commands.names.read"));
     }
+    public function onJoin(PlayerJoinEvent $event) {
+        $player = $event->getPlayer();
 
+        $messagecount = ServerMailAPI::getMessageCount($player);
+
+        $player->sendMessage("[ServerMail] " . sprintf($this->getMessage("messages.count"), $messagecount) . ".  /"
+                . $this->getMessage("commands.names.mail") . " "
+                . $this->getMessage("commands.names.read"));
+    }
     public function getMessage($key) {
         return isset($this->messages[$key]) ? $this->messages[$key] : $key;
     }
