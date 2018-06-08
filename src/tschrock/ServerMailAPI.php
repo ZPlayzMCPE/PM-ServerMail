@@ -29,7 +29,7 @@ class ServerMailAPI {
             self::$dataDir = $plugin->getServer()->getPluginPath() . "ServerMail/";
             @mkdir(self::$dataDir, 0777, true);
             self::$config = new Config(self::$dataDir . "config.yml", Config::YAML, array(
-                self::CONFIG_NPMESSAGE => "Welcome to the Server!",
+                self::CONFIG_NPMESSAGE => "§a§lWelcome To §6Void§bMiner§cPE§d!",
             ));
             self::$isSetup = true;
         }
