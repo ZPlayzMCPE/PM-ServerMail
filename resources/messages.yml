@@ -1,20 +1,20 @@
 ## English strings
 messages:
-    count: "You have %1$d messages"
+    count: "§bHey, §aYou have§3 %1$d §bmessages"
     
-    cleared: "All messages cleared"
+    cleared: "§dAll messages cleared"
     
-    sent: "Message sent!"
-    similar: "You already sent a message like that!"
-    no_player: "%1$s has no mailbox!"
-    too_many: "You have reached your message limit to %1$s!"
+    sent: "§dMessage sent!"
+    similar: "§cYou already sent a message like that!"
+    no_player: "§a%1$s §bhas no mailbox!"
+    too_many: "§cYou have reached your message limit to §2%1$s!"
     
-    new_message: "%1$s just sent you a new message!"
+    new_message: "§a%1$s §bjust sent you a new message!"
     
-    not_allowed: "You are not allowed to broadcast mail."
+    not_allowed: "§cYou are not allowed to broadcast mail."
  
 commands:
-    description: "Sends mail to other players."
+    description: "§cSends mail to other players."
     names:
         mail: "mail"
         read: "read"
